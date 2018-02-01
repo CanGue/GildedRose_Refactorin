@@ -16,7 +16,7 @@ public class GildedRoseTest {
 
     @Test
     public void testBackstage() {
-        Item[] items = new Item[] { new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 22, 22) };
+        Item[] items = new Item[] { new BackstagePass( 22, 22) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(21, app.items[0].sellIn);
@@ -25,7 +25,7 @@ public class GildedRoseTest {
 
     @Test
     public void testSulfuras() {
-        Item[] items = new Item[] { new SulfurasHand("Sulfuras, Hand of Ragnaros", 22, 22) };
+        Item[] items = new Item[] { new SulfurasHand(22, 22) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(22, app.items[0].sellIn);
@@ -34,7 +34,8 @@ public class GildedRoseTest {
     
     @Test
     public void testRandomItem() {
-    	  Item[] items = new Item[] { new StandartItem("Random", 22, 22) };
+    	  Item[] items = new Item[] { new StandartItem( 22, 22)};
+    	  items[0].setName("Random");
           GildedRose app = new GildedRose(items);
           app.updateQuality();
           assertEquals(21, app.items[0].sellIn);
@@ -43,7 +44,7 @@ public class GildedRoseTest {
     
     @Test
     public void testQualityNeverMoreThan50() {
-        Item[] items = new Item[] { new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 50, 50) };
+        Item[] items = new Item[] { new BackstagePass(50, 50) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(49, app.items[0].sellIn);
@@ -52,7 +53,7 @@ public class GildedRoseTest {
     
     @Test
     public void testBackstageDropsToZeroAfterConcert() {
-        Item[] items = new Item[] { new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 0, 50) };
+        Item[] items = new Item[] { new BackstagePass( 0, 50) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(-1, app.items[0].sellIn);
@@ -61,7 +62,7 @@ public class GildedRoseTest {
     
     @Test
     public void testBackstageIncreaseDoubleWhen10To6DaysToConcert() {
-        Item[] items = new Item[] { new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 10, 0) };
+        Item[] items = new Item[] { new BackstagePass( 10, 0) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(9, app.items[0].sellIn);
@@ -70,7 +71,7 @@ public class GildedRoseTest {
     
     @Test
     public void testBackstageIncreaseTripleWhen5To1DaysToConcert() {
-        Item[] items = new Item[] { new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 5, 0) };
+        Item[] items = new Item[] { new BackstagePass( 5, 0) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(4, app.items[0].sellIn);
@@ -78,7 +79,8 @@ public class GildedRoseTest {
     }
     @Test
     public void testQualityDecreaseTwiceAsFastAferSellDate() {
-    	  Item[] items = new Item[] { new StandartItem("Random", 0, 22) };
+    	 Item[] items = new Item[] { new StandartItem( 0, 22)};
+   	  items[0].setName("Random");
           GildedRose app = new GildedRose(items);
           app.updateQuality();
           assertEquals(-1, app.items[0].sellIn);
@@ -88,7 +90,8 @@ public class GildedRoseTest {
     
     @Test
     public void testQualityIsNeverNegativ() {
-    	  Item[] items = new Item[] { new StandartItem("Random", 0, 0) };
+    	 Item[] items = new Item[] { new StandartItem( 0, 0)};
+   	  items[0].setName("Random");
           GildedRose app = new GildedRose(items);
           app.updateQuality();
           assertEquals(-1, app.items[0].sellIn);

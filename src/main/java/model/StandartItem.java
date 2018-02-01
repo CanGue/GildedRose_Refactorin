@@ -2,9 +2,10 @@ package model;
 
 public class StandartItem extends Item {
 
-	public StandartItem(String name, int sellIn, int quality) {
-		super(name, sellIn, quality);
-		// TODO Auto-generated constructor stub
+	public StandartItem(int sellIn, int quality) {
+		
+		this.sellIn = sellIn;
+		this.quality = quality;
 	}
 
 	

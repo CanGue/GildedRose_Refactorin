@@ -14,6 +14,10 @@ public abstract class Item {
 		this.quality = quality;
 	}
 
+	public Item() {
+	
+	}
+	
 	public void increaseQuality(int increaseBy) {
 		this.quality += increaseBy;
 	}
@@ -35,6 +39,33 @@ public abstract class Item {
 		this.decreaseSellIn(1);
 
 	
+		
+		
+		
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getSellIn() {
+		return sellIn;
+	}
+
+	public void setSellIn(int sellIn) {
+		this.sellIn = sellIn;
+	}
+
+	public int getQuality() {
+		return quality;
+	}
+
+	public void setQuality(int quality) {
+		this.quality = quality;
 	}
 
 	@Override
